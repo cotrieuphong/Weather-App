@@ -14,7 +14,10 @@ export class HomeComponent implements OnInit {
     $(function(){
       $('.day').click(function(){
         $(this).siblings().removeClass('active');
-        $(this).toggleClass('active')
+        $(this).siblings().find('.day-stats').removeClass('active');
+        $(this).find('.day-stats').toggleClass('active');
+        $(this).toggleClass('active');
+
       })
 
       $(window).scroll(function(){
