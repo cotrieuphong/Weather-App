@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
   getProvince(event) {
     let value = this.change_alias(event.target.value)
     let provinceRegex = new RegExp('\\b^' + value, "gi")
-    let matched = this.province.filter((provinceName) => provinceName.match(provinceRegex))
+    let matched = this.province.filter((provinceName) => this.change_alias(provinceName).match(provinceRegex))
     console.log(matched)
   }
 
