@@ -116,6 +116,7 @@
 }
 
 .day{
+  will-change: tranform;
   flex: 1;
   transition: all .5s cubic-bezier(.28,.54,.18,1.37);
   background: #fff;
@@ -124,18 +125,25 @@
   color: #fff;
   overflow: hidden;
   position: relative;
+  font-size: .9rem;
+  img{
+    margin-top: 120px!important;
+    transition: all .5s cubic-bezier(.28,.54,.18,1.1);
+    will-change: tranform;
+  }
   .day-stats{
+    will-change: tranform;
     background: #fff;
     color: #000;
     position: absolute;
     width: calc(100% - 20px);
     height: auto;
-    bottom: -210px;
+    bottom: -310px;
     border-radius: 5px;
     box-shadow: 0 .5rem 1rem rgba(#000, .3);
     left: 10px;
-    transition: all .4s cubic-bezier(.28,.54,.18,1.37);
-    transform: scale(.5);
+    transition: all .5s cubic-bezier(.28,.54,.18,1.1);
+    transform: scale(0);
     &.active{
       bottom: 10px;
       transform: scale(1);
@@ -175,7 +183,9 @@
   }
   &.active{
     flex: 3;
-
+    img{
+      margin-top: 0!important;
+    }
   }
   &:nth-child(odd){
     /* background: linear-gradient(to top, #4b134f, #c94b4b); */
