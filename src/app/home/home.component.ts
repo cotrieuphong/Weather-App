@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
       })
 
       $(window).scroll(function(){
-        if($(window).scrollTop() > window.outerHeight - $('.a').offset().top){
-          $('.a').addClass('active')
+        if($(window).scrollTop() > window.outerHeight - $('.city-forecast').offset().top + 200){
+          $('.city-forecast').addClass('active')
         }
       })
 
