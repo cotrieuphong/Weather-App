@@ -2,70 +2,228 @@
 
   <div class="col-12 m-auto p-5">
     <div class="row no-gutters">
-      <div class="col-12 p-2">
+      <div class="col-12 p-2 py-3">
         <h1 class="title">Thời tiết 7 ngày tới</h1>
       </div>
       <div class="col-3 p-2">
         <div class="location-input box mb-4">
           <input type="text" class="text-center shadow" placeholder="Nhập vị trí của bạn">
         </div>
-        <div class="text-center shadow location box" style="color: #fff;">
-          <p>Hôm nay</p>
-          <h3>Hanoi, Vietnam</h3>
-          <p>Ẩm và nhiều mây</p>
-          <img src="public/img/cloudy.png" class="d-block m-auto">
-          <h1>27 <span>C</span></h1>
-          <p>Cảm giác thật: 30<span>C</span></p>
-          <div class="row no-gutters stats" style="color: #000;">
-            <div class="col-6">
-              <img src="public/img/humidity.png" alt="" style="width: 20px;">
-              Độ ẩm: 64%
-            </div>
-            <div class="col-6">
-              <img src="public/img/wind.png" alt="" style="width: 20px;">
-              Tốc độ gió: 2.1km/s
-            </div>
-            <div class="col-6">
-              Nhiệt độ cao nhất:
-            </div>
-            <div class="col6">
-              Nhiệt độ thấp nhất
-            </div>
-            <div class="col-6">
-              UV:
-            </div>
-            <div class="col-6">
-              Số h nắng:
+        <div class="shadow location">
+          <div class="location-info text-center">
+            <p class="mb-0">Hôm nay</p>
+            <h3 class="py-3">Hanoi, Vietnam</h3>
+            <p class="mb-0">Ẩm và nhiều mây</p>
+            <img src="./assets/img/cloud-icon.png" class="d-block m-auto">
+            <h1>27 <span>C</span></h1>
+            <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+            <div class="row no-gutters shadow stats py-2">
+              <div class="col-4 divider-right">
+                <p class="m-0">Độ ẩm</p>
+                <img src="./assets/img/humidity.png" class="d-block small-icon">
+                <p class="m-0">67</p>
+              </div>
+              <div class="col-4 divider-right">
+                <p class="m-0">Gió</p>
+                <img src="./assets/img/wind.png" class="d-block small-icon">
+                <p class="m-0">112(km/h)</p>
+              </div>
+              <div class="col-4">
+                <p class="m-0">Tia UV</p>
+                <img src="./assets/img/UV.png" class="d-block small-icon">
+                <p class="m-0">78</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
       <div class="col-9 p-2">
         <div class="shadow-lg d-flex week box">
-          <div class="day active" style="background: linear-gradient(to right, #0f2027, #203a43, #2c5364);">Thứ 4
-            <p>Ẩm và nhiều mây</p>
-            <img src="public/img/cloudy.png" class="d-block m-auto">
-            <h1>27 <span>C</span></h1>
-            <p>Cảm giác thật: 30<span>C</span></p>
-            <div class="row no-gutters">
-              <div class="col-6">
-                <img src="public/img/humidity.png" alt="" style="width: 20px;">
-                Độ ẩm: 64%
+          <div class="day sunny active">
+            <div class="forecast-container">
+              <p>Thứ 4</p>
+              <p>Ẩm và nhiều mây</p>
+              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
+              <h1>27 <span>C</span></h1>
+              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <div class="row no-gutters shadow day-stats active py-2">
+                <div class="col-4 divider-right">
+                  <p class="m-0">Độ ẩm</p>
+                  <img src="./assets/img/humidity.png" class="d-block small-icon">
+                  <p class="m-0">67</p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Gió</p>
+                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <p class="m-0">112(km/h)</p>
+                </div>
+                <div class="col-4">
+                  <p class="m-0">Tia UV</p>
+                  <img src="./assets/img/UV.png" class="d-block small-icon">
+                  <p class="m-0">78</p>
+                </div>
               </div>
-              <div class="col-6">
-                <img src="public/img/wind.png" alt="" style="width: 20px;">
-                Tốc độ gió: 2.1km/s
+            </div>
+          </div>
+          <div class="day rainny">
+            <div class="forecast-container">
+              <p>Thứ 4</p>
+              <p>Ẩm và nhiều mây</p>
+              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
+              <h1>27 <span>C</span></h1>
+              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-4 divider-right">
+                  <p class="m-0">Độ ẩm</p>
+                  <img src="./assets/img/humidity.png" class="d-block small-icon">
+                  <p class="m-0">67</p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Gió</p>
+                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <p class="m-0">112(km/h)</p>
+                </div>
+                <div class="col-4">
+                  <p class="m-0">Tia UV</p>
+                  <img src="./assets/img/UV.png" class="d-block small-icon">
+                  <p class="m-0">78</p>
+                </div>
               </div>
-            </div></div>
-          <div class="day">Thứ 5</div>
-          <div class="day">Thứ 6</div>
-          <div class="day">Thứ 7</div>
-          <div class="day">Chủ nhật</div>
-          <div class="day">Thứ 2</div>
-          <div class="day">Thứ 2</div>
+            </div>
+          </div>
+          <div class="day cloudy">
+            <div class="forecast-container">
+              <p>Thứ 4</p>
+              <p>Ẩm và nhiều mây</p>
+              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
+              <h1>27 <span>C</span></h1>
+              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-4 divider-right">
+                  <p class="m-0">Độ ẩm</p>
+                  <img src="./assets/img/humidity.png" class="d-block small-icon">
+                  <p class="m-0">67</p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Gió</p>
+                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <p class="m-0">112(km/h)</p>
+                </div>
+                <div class="col-4">
+                  <p class="m-0">Tia UV</p>
+                  <img src="./assets/img/UV.png" class="d-block small-icon">
+                  <p class="m-0">78</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="day sunny">
+            <div class="forecast-container">
+              <p>Thứ 4</p>
+              <p>Ẩm và nhiều mây</p>
+              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
+              <h1>27 <span>C</span></h1>
+              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-4 divider-right">
+                  <p class="m-0">Độ ẩm</p>
+                  <img src="./assets/img/humidity.png" class="d-block small-icon">
+                  <p class="m-0">67</p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Gió</p>
+                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <p class="m-0">112(km/h)</p>
+                </div>
+                <div class="col-4">
+                  <p class="m-0">Tia UV</p>
+                  <img src="./assets/img/UV.png" class="d-block small-icon">
+                  <p class="m-0">78</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="day sunny">
+            <div class="forecast-container">
+              <p>Thứ 4</p>
+              <p>Ẩm và nhiều mây</p>
+              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
+              <h1>27 <span>C</span></h1>
+              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-4 divider-right">
+                  <p class="m-0">Độ ẩm</p>
+                  <img src="./assets/img/humidity.png" class="d-block small-icon">
+                  <p class="m-0">67</p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Gió</p>
+                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <p class="m-0">112(km/h)</p>
+                </div>
+                <div class="col-4">
+                  <p class="m-0">Tia UV</p>
+                  <img src="./assets/img/UV.png" class="d-block small-icon">
+                  <p class="m-0">78</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="day rainny">
+            <div class="forecast-container">
+              <p>Thứ 4</p>
+              <p>Ẩm và nhiều mây</p>
+              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
+              <h1>27 <span>C</span></h1>
+              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-4 divider-right">
+                  <p class="m-0">Độ ẩm</p>
+                  <img src="./assets/img/humidity.png" class="d-block small-icon">
+                  <p class="m-0">67</p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Gió</p>
+                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <p class="m-0">112(km/h)</p>
+                </div>
+                <div class="col-4">
+                  <p class="m-0">Tia UV</p>
+                  <img src="./assets/img/UV.png" class="d-block small-icon">
+                  <p class="m-0">78</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="day rainny">
+            <div class="forecast-container">
+              <p>Thứ 4</p>
+              <p>Ẩm và nhiều mây</p>
+              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
+              <h1>27 <span>C</span></h1>
+              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-4 divider-right">
+                  <p class="m-0">Độ ẩm</p>
+                  <img src="./assets/img/humidity.png" class="d-block small-icon">
+                  <p class="m-0">67</p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Gió</p>
+                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <p class="m-0">112(km/h)</p>
+                </div>
+                <div class="col-4">
+                  <p class="m-0">Tia UV</p>
+                  <img src="./assets/img/UV.png" class="d-block small-icon">
+                  <p class="m-0">78</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-12 p-2">
+      <div class="col-12 p-2 py-3">
         <h1 class="title">Tin tức</h1>
         <div class="row no-gutters py-5" style="height: 600px;">
           <div class="col-3 py-1 pr-1 con">
