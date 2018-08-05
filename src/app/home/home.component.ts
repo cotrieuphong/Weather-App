@@ -8,6 +8,9 @@ import * as $ from 'jquery';
 })
 export class HomeComponent implements OnInit {
 
+  results = [];
+  input: string = null;
+
   constructor() { }
 
   province = [
@@ -31,10 +34,20 @@ export class HomeComponent implements OnInit {
   }
 
   getProvince(event) {
-    let value = this.change_alias(event.target.value)
+    if (event.target.value == null || event.target.value == '') {
+      this.results = [];
+      return;
+    }
+    let value = this.change_alias(event.target.value);
     let provinceRegex = new RegExp('\\b^' + value, "gi")
     let matched = this.province.filter((provinceName) => this.change_alias(provinceName).match(provinceRegex))
     console.log(matched)
+    matched.splice(5, matched.length);
+    this.results = matched;
+  }
+
+  bindResultToInput(result){
+    this.input = result;
   }
 
   ngOnInit() {

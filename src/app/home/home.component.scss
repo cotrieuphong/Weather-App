@@ -58,6 +58,7 @@
 
 .location-input{
   padding: 0;
+  position: relative;
   input{
     width: 100%;
     border: 0;
@@ -68,6 +69,26 @@
     transition: all .3s ease;
     &:focus{
       box-shadow: 0 .5rem 1rem rgba(#000, .5)!important
+    }
+  }
+  .location-input-result{
+    background-color: #fff;
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    border-radius: 3px;
+    z-index: 9;
+    ul{
+      list-style-type: none;
+      padding-left: 0;
+      margin-bottom: 0;
+      li{
+        display: block;
+        padding: 5px 10px;
+        cursor: pointer;
+        text-align: center;
+        border-top: 1px solid #e6e6e6;
+      }
     }
   }
 }
