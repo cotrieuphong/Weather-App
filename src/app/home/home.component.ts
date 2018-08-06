@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import {fakeNews} from '../data/fake-news';
 
 @Component({
   selector: 'app-home',
@@ -10,6 +11,7 @@ export class HomeComponent implements OnInit {
 
   results = [];
   input: string = null;
+  newsData = []
 
   constructor() { }
 
@@ -51,6 +53,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.newsData = [fakeNews[0], fakeNews[1], fakeNews[2]]
     $(function(){
       $('.day').click(function(){
         $(this).siblings().removeClass('active');
