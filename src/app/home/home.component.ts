@@ -43,17 +43,16 @@ export class HomeComponent implements OnInit {
     let value = this.change_alias(event.target.value);
     let provinceRegex = new RegExp('\\b^' + value, "gi")
     let matched = this.province.filter((provinceName) => this.change_alias(provinceName).match(provinceRegex))
-    console.log(matched)
-    matched.splice(5, matched.length);
     this.results = matched;
   }
 
   bindResultToInput(result){
     this.input = result;
+    this.results = [];
   }
 
   ngOnInit() {
-    this.newsData = [fakeNews[0], fakeNews[1], fakeNews[2]]
+    this.newsData = fakeNews;
     $(function(){
       $('.day').click(function(){
         $(this).siblings().removeClass('active');
