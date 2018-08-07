@@ -7,31 +7,36 @@
       </div>
       <div class="col-3 p-2">
         <div class="location-input box mb-4">
-          <input type="text" class="text-center shadow" placeholder="Nhập vị trí của bạn">
+          <input (change)="handleSubmitInput($event)" name="location" type="text" class="text-center shadow" placeholder="Nhập vị trí của bạn">
         </div>
         <div class="shadow location">
           <div class="location-info text-center">
             <p class="mb-0">Hôm nay</p>
-            <h3 class="py-3">Hanoi, Vietnam</h3>
-            <p class="mb-0">Ẩm và nhiều mây</p>
+            <h3 class="py-3">{{(weather && weather.city ) || '--'}}</h3>
+            <p class="mb-0">{{(weather && weather.title ) || '--'}}</p>
             <img src="./assets/img/cloud-icon.png" class="d-block m-auto">
-            <h1>27 <span>C</span></h1>
-            <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+            <h1>
+              {{(weather && weather.temp_C ) || '--'}}
+              <span>C</span>
+            </h1>
+            <p class="py-1">Cảm giác thật: {{(weather && weather.FeelsLikeC ) || '--'}}
+              <span>C</span>
+            </p>
             <div class="row no-gutters shadow stats py-2">
               <div class="col-4 divider-right">
                 <p class="m-0">Độ ẩm</p>
                 <img src="./assets/img/humidity.png" class="d-block small-icon">
-                <p class="m-0">67</p>
+                <p class="m-0">{{(weather && weather.humidity ) || '--'}}</p>
               </div>
               <div class="col-4 divider-right">
                 <p class="m-0">Gió</p>
                 <img src="./assets/img/wind.png" class="d-block small-icon">
-                <p class="m-0">112(km/h)</p>
+                <p class="m-0">{{(weather && weather.windspeedKmph ) || '--'}} (km/h)</p>
               </div>
               <div class="col-4">
                 <p class="m-0">Tia UV</p>
                 <img src="./assets/img/UV.png" class="d-block small-icon">
-                <p class="m-0">78</p>
+                <p class="m-0">{{(weather && weather.uvIndex ) || '--'}}</p>
               </div>
             </div>
           </div>
@@ -44,8 +49,12 @@
               <p>Thứ 4</p>
               <p>Ẩm và nhiều mây</p>
               <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27 <span>C</span></h1>
-              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <h1>27
+                <span>C</span>
+              </h1>
+              <p class="py-1">Cảm giác thật: 30
+                <span>C</span>
+              </p>
               <div class="row no-gutters shadow day-stats active py-2">
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
@@ -70,8 +79,12 @@
               <p>Thứ 4</p>
               <p>Ẩm và nhiều mây</p>
               <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27 <span>C</span></h1>
-              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <h1>27
+                <span>C</span>
+              </h1>
+              <p class="py-1">Cảm giác thật: 30
+                <span>C</span>
+              </p>
               <div class="row no-gutters shadow day-stats py-2">
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
@@ -96,8 +109,12 @@
               <p>Thứ 4</p>
               <p>Ẩm và nhiều mây</p>
               <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27 <span>C</span></h1>
-              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <h1>27
+                <span>C</span>
+              </h1>
+              <p class="py-1">Cảm giác thật: 30
+                <span>C</span>
+              </p>
               <div class="row no-gutters shadow day-stats py-2">
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
@@ -122,8 +139,12 @@
               <p>Thứ 4</p>
               <p>Ẩm và nhiều mây</p>
               <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27 <span>C</span></h1>
-              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <h1>27
+                <span>C</span>
+              </h1>
+              <p class="py-1">Cảm giác thật: 30
+                <span>C</span>
+              </p>
               <div class="row no-gutters shadow day-stats py-2">
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
@@ -148,8 +169,12 @@
               <p>Thứ 4</p>
               <p>Ẩm và nhiều mây</p>
               <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27 <span>C</span></h1>
-              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <h1>27
+                <span>C</span>
+              </h1>
+              <p class="py-1">Cảm giác thật: 30
+                <span>C</span>
+              </p>
               <div class="row no-gutters shadow day-stats py-2">
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
@@ -174,8 +199,12 @@
               <p>Thứ 4</p>
               <p>Ẩm và nhiều mây</p>
               <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27 <span>C</span></h1>
-              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <h1>27
+                <span>C</span>
+              </h1>
+              <p class="py-1">Cảm giác thật: 30
+                <span>C</span>
+              </p>
               <div class="row no-gutters shadow day-stats py-2">
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
@@ -200,8 +229,12 @@
               <p>Thứ 4</p>
               <p>Ẩm và nhiều mây</p>
               <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27 <span>C</span></h1>
-              <p class="py-1">Cảm giác thật: 30 <span>C</span></p>
+              <h1>27
+                <span>C</span>
+              </h1>
+              <p class="py-1">Cảm giác thật: 30
+                <span>C</span>
+              </p>
               <div class="row no-gutters shadow day-stats py-2">
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
