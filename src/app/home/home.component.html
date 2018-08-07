@@ -5,9 +5,20 @@
       <div class="col-12 p-2 py-3">
         <h1 class="title">Thời tiết 7 ngày tới</h1>
       </div>
-      <div class="col-3 p-2">
+
+      <!-- Thời tiết 7 ngày tới -->
+
+      <div class="col-3 p-2 pb-5">
         <div class="location-input box mb-4">
-          <input (change)="handleSubmitInput($event)" name="location" type="text" class="text-center shadow" placeholder="Nhập vị trí của bạn">
+          <input (change)="handleSubmitInput($event.target.value)" type="text" class="text-center shadow" placeholder="Nhập vị trí của bạn"
+            (input)="getProvince($event)" [value]="input">
+          <div class="location-input-result">
+            <ul>
+              <li *ngFor="let result of results" (click)="bindResultToInput(result)">
+                {{result}}
+              </li>
+            </ul>
+          </div>
         </div>
         <div class="shadow location">
           <div class="location-info text-center">
@@ -42,253 +53,393 @@
           </div>
         </div>
       </div>
-      <div class="col-9 p-2">
+      <div class="col-9 p-2 pb-5">
         <div class="shadow-lg d-flex week box">
           <div class="day sunny active">
             <div class="forecast-container">
-              <p>Thứ 4</p>
-              <p>Ẩm và nhiều mây</p>
-              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27
+              <p class="p-2">Thứ 3</p>
+              <img src="./assets/img/sun-icon.png" class="d-block m-auto big-icon py-3">
+              <h1>{{(weather && weather.weather[0].mintempC ) || '--'}}
                 <span>C</span>
               </h1>
-              <p class="py-1">Cảm giác thật: 30
-                <span>C</span>
-              </p>
               <div class="row no-gutters shadow day-stats active py-2">
+                <div class="col-12">
+                  <p class="m-0">{{(weather && weather.weather[0].hourly[4].lang_vi[0].value ) || '--'}}</p>
+                  <p class="py-1 m-0">Cảm giác thật: {{(weather && weather.weather[0].hourly[4].FeelsLikeC ) || '--'}}
+                    <span>C</span>
+                  </p>
+                </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
                   <img src="./assets/img/humidity.png" class="d-block small-icon">
-                  <p class="m-0">67</p>
+                  <p class="m-0">{{(weather && weather.weather[0].hourly[4].humidity ) || '--'}}</p>
                 </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Gió</p>
                   <img src="./assets/img/wind.png" class="d-block small-icon">
-                  <p class="m-0">112(km/h)</p>
+                  <p class="m-0">{{(weather && weather.weather[0].hourly[4].windspeedKmph ) || '--'}} (km/h)</p>
                 </div>
                 <div class="col-4">
                   <p class="m-0">Tia UV</p>
                   <img src="./assets/img/UV.png" class="d-block small-icon">
-                  <p class="m-0">78</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="day rainny">
-            <div class="forecast-container">
-              <p>Thứ 4</p>
-              <p>Ẩm và nhiều mây</p>
-              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27
-                <span>C</span>
-              </h1>
-              <p class="py-1">Cảm giác thật: 30
-                <span>C</span>
-              </p>
-              <div class="row no-gutters shadow day-stats py-2">
-                <div class="col-4 divider-right">
-                  <p class="m-0">Độ ẩm</p>
-                  <img src="./assets/img/humidity.png" class="d-block small-icon">
-                  <p class="m-0">67</p>
-                </div>
-                <div class="col-4 divider-right">
-                  <p class="m-0">Gió</p>
-                  <img src="./assets/img/wind.png" class="d-block small-icon">
-                  <p class="m-0">112(km/h)</p>
-                </div>
-                <div class="col-4">
-                  <p class="m-0">Tia UV</p>
-                  <img src="./assets/img/UV.png" class="d-block small-icon">
-                  <p class="m-0">78</p>
+                  <p class="m-0">{{(weather && weather.weather[0].uvIndex ) || '--'}}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="day cloudy">
             <div class="forecast-container">
-              <p>Thứ 4</p>
-              <p>Ẩm và nhiều mây</p>
-              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27
+              <p class="p-2">Thứ 4</p>
+              <img src="./assets/img/cloud-icon.png" class="d-block m-auto big-icon py-3">
+              <h1>{{(weather && weather.weather[1].mintempC ) || '--'}}
                 <span>C</span>
               </h1>
-              <p class="py-1">Cảm giác thật: 30
-                <span>C</span>
-              </p>
               <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-12">
+                  <p class="m-0">{{(weather && weather.weather[1].hourly[4].lang_vi[0].value ) || '--'}}</p>
+                  <p class="py-1 m-0">Cảm giác thật: {{(weather && weather.weather[1].hourly[4].FeelsLikeC ) || '--'}}
+                    <span>C</span>
+                  </p>
+                </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
                   <img src="./assets/img/humidity.png" class="d-block small-icon">
-                  <p class="m-0">67</p>
+                  <p class="m-0">{{(weather && weather.weather[1].hourly[4].humidity ) || '--'}}</p>
                 </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Gió</p>
                   <img src="./assets/img/wind.png" class="d-block small-icon">
-                  <p class="m-0">112(km/h)</p>
+                  <p class="m-0">{{(weather && weather.weather[1].hourly[4].windspeedKmph ) || '--'}} (km/h)</p>
                 </div>
                 <div class="col-4">
                   <p class="m-0">Tia UV</p>
                   <img src="./assets/img/UV.png" class="d-block small-icon">
-                  <p class="m-0">78</p>
+                  <p class="m-0">{{(weather && weather.weather[1].uvIndex ) || '--'}}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="day sunny">
             <div class="forecast-container">
-              <p>Thứ 4</p>
-              <p>Ẩm và nhiều mây</p>
-              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27
+              <p class="p-2">Thứ 5</p>
+              <img src="./assets/img/sun-icon.png" class="d-block m-auto big-icon py-3">
+              <h1>{{(weather && weather.weather[2].mintempC ) || '--'}}
                 <span>C</span>
               </h1>
-              <p class="py-1">Cảm giác thật: 30
-                <span>C</span>
-              </p>
               <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-12">
+                  <p class="m-0">{{(weather && weather.weather[2].hourly[4].lang_vi[0].value ) || '--'}}</p>
+                  <p class="py-1 m-0">Cảm giác thật: {{(weather && weather.weather[2].hourly[4].FeelsLikeC ) || '--'}}
+                    <span>C</span>
+                  </p>
+                </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
                   <img src="./assets/img/humidity.png" class="d-block small-icon">
-                  <p class="m-0">67</p>
+                  <p class="m-0">{{(weather && weather.weather[2].hourly[4].humidity ) || '--'}}</p>
                 </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Gió</p>
                   <img src="./assets/img/wind.png" class="d-block small-icon">
-                  <p class="m-0">112(km/h)</p>
+                  <p class="m-0">{{(weather && weather.weather[2].hourly[4].windspeedKmph ) || '--'}} (km/h)</p>
                 </div>
                 <div class="col-4">
                   <p class="m-0">Tia UV</p>
                   <img src="./assets/img/UV.png" class="d-block small-icon">
-                  <p class="m-0">78</p>
+                  <p class="m-0">{{(weather && weather.weather[2].uvIndex ) || '--'}}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="day sunny">
             <div class="forecast-container">
-              <p>Thứ 4</p>
-              <p>Ẩm và nhiều mây</p>
-              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27
+              <p class="p-2">Thứ 6</p>
+              <img src="./assets/img/sun-icon.png" class="d-block m-auto big-icon py-3">
+              <h1>{{(weather && weather.weather[3].mintempC ) || '--'}}
                 <span>C</span>
               </h1>
-              <p class="py-1">Cảm giác thật: 30
-                <span>C</span>
-              </p>
               <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-12">
+                  <p class="m-0">{{(weather && weather.weather[3].hourly[4].lang_vi[0].value ) || '--'}}</p>
+                  <p class="py-1 m-0">Cảm giác thật: {{(weather && weather.weather[3].hourly[4].FeelsLikeC ) || '--'}}
+                    <span>C</span>
+                  </p>
+                </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
                   <img src="./assets/img/humidity.png" class="d-block small-icon">
-                  <p class="m-0">67</p>
+                  <p class="m-0">{{(weather && weather.weather[3].hourly[4].humidity ) || '--'}}</p>
                 </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Gió</p>
                   <img src="./assets/img/wind.png" class="d-block small-icon">
-                  <p class="m-0">112(km/h)</p>
+                  <p class="m-0">{{(weather && weather.weather[3].hourly[4].windspeedKmph ) || '--'}} (km/h)</p>
                 </div>
                 <div class="col-4">
                   <p class="m-0">Tia UV</p>
                   <img src="./assets/img/UV.png" class="d-block small-icon">
-                  <p class="m-0">78</p>
+                  <p class="m-0">{{(weather && weather.weather[3].uvIndex ) || '--'}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="day cloudy">
+            <div class="forecast-container">
+              <p class="p-2">Thứ 7</p>
+              <img src="./assets/img/cloud-icon.png" class="d-block m-auto big-icon py-3">
+              <h1>{{(weather && weather.weather[4].mintempC ) || '--'}}
+                <span>C</span>
+              </h1>
+              <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-12">
+                  <p class="m-0">{{(weather && weather.weather[4].hourly[4].lang_vi[0].value ) || '--'}}</p>
+                  <p class="py-1 m-0">Cảm giác thật: {{(weather && weather.weather[4].hourly[4].FeelsLikeC ) || '--'}}
+                    <span>C</span>
+                  </p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Độ ẩm</p>
+                  <img src="./assets/img/humidity.png" class="d-block small-icon">
+                  <p class="m-0">{{(weather && weather.weather[4].hourly[4].humidity ) || '--'}}</p>
+                </div>
+                <div class="col-4 divider-right">
+                  <p class="m-0">Gió</p>
+                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <p class="m-0">{{(weather && weather.weather[4].hourly[4].windspeedKmph ) || '--'}} (km/h)</p>
+                </div>
+                <div class="col-4">
+                  <p class="m-0">Tia UV</p>
+                  <img src="./assets/img/UV.png" class="d-block small-icon">
+                  <p class="m-0">{{(weather && weather.weather[4].uvIndex ) || '--'}}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="day rainny">
             <div class="forecast-container">
-              <p>Thứ 4</p>
-              <p>Ẩm và nhiều mây</p>
-              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27
+              <p class="p-2">chủ nhật</p>
+              <img src="./assets/img/rain-icon.png" class="d-block m-auto big-icon py-3">
+              <h1>{{(weather && weather.weather[5].mintempC ) || '--'}}
                 <span>C</span>
               </h1>
-              <p class="py-1">Cảm giác thật: 30
-                <span>C</span>
-              </p>
               <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-12">
+                  <p class="m-0">{{(weather && weather.weather[5].hourly[4].lang_vi[0].value ) || '--'}}</p>
+                  <p class="py-1 m-0">Cảm giác thật: {{(weather && weather.weather[5].hourly[4].FeelsLikeC ) || '--'}}
+                    <span>C</span>
+                  </p>
+                </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
                   <img src="./assets/img/humidity.png" class="d-block small-icon">
-                  <p class="m-0">67</p>
+                  <p class="m-0">{{(weather && weather.weather[5].hourly[4].humidity ) || '--'}}</p>
                 </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Gió</p>
                   <img src="./assets/img/wind.png" class="d-block small-icon">
-                  <p class="m-0">112(km/h)</p>
+                  <p class="m-0">{{(weather && weather.weather[5].hourly[4].windspeedKmph ) || '--'}} (km/h)</p>
                 </div>
                 <div class="col-4">
                   <p class="m-0">Tia UV</p>
                   <img src="./assets/img/UV.png" class="d-block small-icon">
-                  <p class="m-0">78</p>
+                  <p class="m-0">{{(weather && weather.weather[5].uvIndex ) || '--'}}</p>
                 </div>
               </div>
             </div>
           </div>
           <div class="day rainny">
             <div class="forecast-container">
-              <p>Thứ 4</p>
-              <p>Ẩm và nhiều mây</p>
-              <img src="./assets/img/sunny-day.png" class="d-block m-auto big-icon py-3">
-              <h1>27
+              <p class="p-2">Thứ 2</p>
+              <img src="./assets/img/sun-icon.png" class="d-block m-auto big-icon py-3">
+              <h1>{{(weather && weather.weather[6].mintempC ) || '--'}}
                 <span>C</span>
               </h1>
-              <p class="py-1">Cảm giác thật: 30
-                <span>C</span>
-              </p>
               <div class="row no-gutters shadow day-stats py-2">
+                <div class="col-12">
+                  <p class="m-0">{{(weather && weather.weather[6].hourly[4].lang_vi[0].value ) || '--'}}</p>
+                  <p class="py-1 m-0">Cảm giác thật: {{(weather && weather.weather[6].hourly[4].FeelsLikeC ) || '--'}}
+                    <span>C</span>
+                  </p>
+                </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Độ ẩm</p>
                   <img src="./assets/img/humidity.png" class="d-block small-icon">
-                  <p class="m-0">67</p>
+                  <p class="m-0">{{(weather && weather.weather[6].hourly[4].humidity ) || '--'}}</p>
                 </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Gió</p>
                   <img src="./assets/img/wind.png" class="d-block small-icon">
-                  <p class="m-0">112(km/h)</p>
+                  <p class="m-0">{{(weather && weather.weather[6].hourly[4].windspeedKmph ) || '--'}} (km/h)</p>
                 </div>
                 <div class="col-4">
                   <p class="m-0">Tia UV</p>
                   <img src="./assets/img/UV.png" class="d-block small-icon">
-                  <p class="m-0">78</p>
+                  <p class="m-0">{{(weather && weather.weather[6].uvIndex ) || '--'}}</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      <!-- End thời tiết 7 ngày -->
+
+      <!-- Khu vực khác -->
+
       <div class="col-12 p-2 py-3">
-        <h1 class="title">Tin tức</h1>
-        <div class="row no-gutters py-5" style="height: 600px;">
-          <div class="col-3 py-1 pr-1 con">
-            <div class="a"></div>
+        <h1 class="title py-3">Khu vực khác</h1>
+        <div class="row no-gutters">
+
+          <!-- Line 1 -->
+
+          <div class="col-4 py-2 pr-2 pl-0 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Hà Nội</h4>
+                <h1>29
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/sun-icon.png" alt="">
+              </div>
+            </div>
           </div>
-          <div class="col-3 p-1 con">
-            <div class="a"></div>
+          <div class="col-4 p-2 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Hải Phòng</h4>
+                <h1>21
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/rain-icon.png" alt="">
+              </div>
+            </div>
           </div>
-          <div class="col-3 p-1 con">
-            <div class="a"></div>
+          <div class="col-4 py-2 pl-2 pr-0 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Đà nẵng</h4>
+                <h1>24
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/cloud-icon.png" alt="">
+              </div>
+            </div>
           </div>
-          <div class="col-3 py-1 pl-1 con">
-            <div class="a"></div>
+
+          <!-- Line 2 -->
+
+          <div class="col-4 py-2 pr-2 pl-0 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Nha Trang</h4>
+                <h1>29
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/sun-icon.png" alt="">
+              </div>
+            </div>
           </div>
-          <div class="col-3 py-1 pr-1 con">
-            <div class="a"></div>
+          <div class="col-4 p-2 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Huế</h4>
+                <h1>23
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/sun-icon.png" alt="">
+              </div>
+            </div>
           </div>
-          <div class="col-3 p-1 con">
-            <div class="a"></div>
+          <div class="col-4 py-2 pl-2 pr-0 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Hạ Long</h4>
+                <h1>27
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/rain-icon.png" alt="">
+              </div>
+            </div>
           </div>
-          <div class="col-3 p-1 con">
-            <div class="a"></div>
+
+          <!-- Line 3 -->
+
+          <div class="col-4 py-2 pr-2 pl-0 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Sài Gòn</h4>
+                <h1>22
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/rain-icon.png" alt="">
+              </div>
+            </div>
           </div>
-          <div class="col-3 py-1 pl-1 con">
-            <div class="a"></div>
+          <div class="col-4 p-2 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Cần Thơ</h4>
+                <h1>28
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/sun-icon.png" alt="">
+              </div>
+            </div>
           </div>
+          <div class="col-4 py-2 pl-2 pr-0 city-forecast">
+            <div class="city">
+              <div class="city-bg p-2">
+                <h4>Biên Hòa</h4>
+                <h1>22
+                  <span>C</span>
+                </h1>
+                <img src="./assets/img/cloud-icon.png" alt="">
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+
+      <!-- End khu vực khác -->
+
+      <!-- Tin tức -->
+
       <div class="col-12 p-2">
-        <h1 class="title">Tin tức nổi bật</h1>
+
+        <h1 class="title pt-5">Tin tức nổi bật</h1>
+
+        <div class="row no-gutters">
+          <div class="col-8 py-2 pr-2">
+            <div class="new shadow" *ngFor="let news of newsData">
+              <img src="{{news.thumb}}" alt="">
+              <div class="information">
+                <h2>{{news.title}}</h2>
+                <p class="m-0">{{news.short}}</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 py-2 pl-2">
+            <div class="related">
+              <h1 class="p-1">Tin liên quan</h1>
+              <ul class="list-group">
+                <li class="list-group-item">Mưa lũ Hà Nội</li>
+                <li class="list-group-item">Hà Nội: Vỡ đê ở Chương Mỹ nhấn chìm nhà dân</li>
+                <li class="list-group-item">Vỡ đê ở Chương Mỹ: Một học sinh chết đuối thương tâm</li>
+                <li class="list-group-item">Yên Bái: Lũ cuốn phăng mọi thứ, dân rời bản vừa đi vừa khóc</li>
+                <li class="list-group-item">Hà Nội: Mưa suốt ngày đêm, ô tô bơi trên phố</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
       </div>
+
+      <!-- End tin tức -->
+
     </div>
   </div>
+
+
 
 </div>
