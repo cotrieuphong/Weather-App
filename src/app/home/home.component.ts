@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, AfterViewInit } from "@angular/core";
 import * as $ from "jquery";
 import { RootService } from "../root.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -190,16 +190,19 @@ export class HomeComponent implements OnInit {
           .find(".day-stats")
           .toggleClass("active");
         $(this).toggleClass("active");
-
-        $(window).scroll(function() {
-          if (
-            $(window).scrollTop() >
-            window.outerHeight - $(".city-forecast").offset().top + 300
-          ) {
-            $(".city-forecast").addClass("active");
-          }
-        });
       });
+
+      $(window).scroll(function() {
+        if ($(window).scrollTop() > window.innerHeight - $(".city-forecast").offset().top + 300) {
+          $(".city-forecast").addClass("active");
+        }
+      });
+
+      $("img").on('error',function(){
+        $(this).attr('src','./assets/img/error.png')
+
+      })
+
     });
 
     if (navigator.geolocation) {
@@ -216,5 +219,9 @@ export class HomeComponent implements OnInit {
         });
       });
     }
+  }
+
+  ngAfterViewInit() {
+
   }
 }

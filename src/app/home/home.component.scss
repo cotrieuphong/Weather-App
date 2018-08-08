@@ -19,9 +19,6 @@
   height: 100%;
   background: rgba(#000, .3);
   border-radius: 5px;
-  img{
-    width: 80px;
-  }
   h1{
     span{
       position: relative;
@@ -53,6 +50,14 @@
         border: 1px solid #fff;
       }
     }
+  }
+}
+
+.img{
+  height: 80px;
+  img{
+    height: 80px;
+    margin: auto;
   }
 }
 
@@ -94,12 +99,12 @@
 }
 
 .small-icon{
-  width: 22px!important;
+  height: 22px!important;
   margin: 10px auto;
 }
 
 .big-icon{
-  width: 100px!important;
+  height: 130px!important;
   margin: 10px auto;
 }
 
@@ -147,6 +152,7 @@
   overflow: hidden;
   position: relative;
   font-size: .9rem;
+  user-select: none;
   &:hover{
     cursor: pointer;
   }

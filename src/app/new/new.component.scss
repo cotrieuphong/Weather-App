@@ -1,5 +1,8 @@
 .news-app {
   padding: 75px;
+  h1{
+    color: #fff;
+  }
   .news-wrapper {
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -12,7 +15,10 @@
       box-shadow: 0 1px 30px rgba(0,0,0,.4);
       position: relative;
       .news-image {
+        height: 210px;
+        object-fit: cover;
         img {
+          height: 100%;
           width: 100%;
           border-top-left-radius: 5px;
           border-top-right-radius: 5px;
