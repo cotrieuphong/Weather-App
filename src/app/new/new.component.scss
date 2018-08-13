@@ -1,53 +1,59 @@
 .news-app {
-  padding: 75px;
-  h1{
-    color: #fff;
-  }
-  .news-wrapper {
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    grid-gap: 30px;
-    .news-box {
-      background-color: white;
-      border-radius: 5px;
-      overflow: hidden;
-      cursor: pointer;
-      box-shadow: 0 1px 30px rgba(0,0,0,.4);
-      position: relative;
-      .news-image {
-        height: 210px;
-        object-fit: cover;
-        img {
-          height: 100%;
-          width: 100%;
-          border-top-left-radius: 5px;
-          border-top-right-radius: 5px;
-        }
-      }
-      .news-content {
-        padding: 15px;
-        span {
-          font-size: 10px;
-        }
-        h4 {
-          min-height: 130px;
-          margin-bottom: 0;
-        }
-        p {
-          margin-bottom: 75px;
-        }
-      }
-      .read-more {
-        padding: 15px;
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background-color: #efefef;
-        p {
-          margin-bottom: 0;
-        }
-      }
+    padding: 75px;
+    h1{
+        color: #fff;
     }
-  }
+    .news-wrapper {
+        display: grid;
+        grid-template-columns: auto auto;
+        grid-gap: 30px;
+        .news-box {
+            background-color: white;
+            border-radius: 5px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 1px 30px rgba(0,0,0,.4);
+            display: grid;
+            grid-template-columns: 60% 40.1%;
+            .news-image {
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+            .news-content {
+                position: relative;
+                padding: 15px;
+                h5 {
+                    min-height: 100px;
+                }
+                span {
+                    font-size: 10px;
+                }
+                p {
+                    margin-bottom: 75px;
+                }
+                .read-more {
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    padding: 15px;
+                    background-color: #efefef;
+                    transition: .3s;
+                    p {
+                        margin-bottom: 0;
+                        transition: .3s;
+                    }
+                    &:hover {
+                        background-color: #2C424C;
+                        p {
+                            color: #efefef;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

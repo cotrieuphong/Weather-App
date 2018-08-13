@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
 
   handleSubmitInput(event) {
     console.log(event);
+    event = event.replace(' ', '')
     $.get(
       `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7528520a53864c53a34165313180308&q=${event}&format=json&lang=vi`,
       res => {
