@@ -21,6 +21,9 @@
           </div>
         </div>
         <div class="shadow location">
+          <div class="weather-bg">
+              <img  class="m-auto" src="./assets/img/{{(weather && weather.current_condition[0].weatherCode )}}.jpg">
+          </div>
           <div class="location-info text-center">
             <p class="mb-0">Hôm nay</p>
             <h3 class="py-3 m-0">{{(weather && weather.city ) || '--'}}</h3>
@@ -57,7 +60,10 @@
       </div>
       <div class="col-9 p-2 pb-5">
         <div class="shadow-lg d-flex week box">
-          <div class="day sunny active">
+          <div class="day active">
+            <div class="weather-bg">
+                <img  class="m-auto" src="./assets/img/{{(weather && weather.weather[0].hourly[4].weatherCode )}}.jpg">
+            </div>
             <div class="forecast-container">
               <p class="p-2">Thứ 3</p>
                 <img src="./assets/img/{{(weather && weather.weather[0].hourly[4].weatherCode )}}.png" class="d-block m-auto big-icon py-3">
@@ -89,7 +95,10 @@
               </div>
             </div>
           </div>
-          <div class="day cloudy">
+          <div class="day">
+            <div class="weather-bg">
+                <img  class="m-auto" src="./assets/img/{{(weather && weather.weather[1].hourly[4].weatherCode )}}.jpg">
+            </div>
             <div class="forecast-container">
               <p class="p-2">Thứ 4</p>
                 <img src="./assets/img/{{(weather && weather.weather[1].hourly[4].weatherCode )}}.png" class="d-block m-auto big-icon py-3">
@@ -121,7 +130,10 @@
               </div>
             </div>
           </div>
-          <div class="day sunny">
+          <div class="day">
+            <div class="weather-bg">
+                <img  class="m-auto" src="./assets/img/{{(weather && weather.weather[2].hourly[4].weatherCode )}}.jpg">
+            </div>
             <div class="forecast-container">
               <p class="p-2">Thứ 5</p>
                 <img src="./assets/img/{{(weather && weather.weather[2].hourly[4].weatherCode )}}.png" class="d-block m-auto big-icon py-3">
@@ -153,7 +165,10 @@
               </div>
             </div>
           </div>
-          <div class="day sunny">
+          <div class="day">
+            <div class="weather-bg">
+                <img  class="m-auto" src="./assets/img/{{(weather && weather.weather[3].hourly[4].weatherCode )}}.jpg">
+            </div>
             <div class="forecast-container">
               <p class="p-2">Thứ 6</p>
                 <img src="./assets/img/{{(weather && weather.weather[3].hourly[4].weatherCode )}}.png" class="d-block m-auto big-icon py-3">
@@ -185,7 +200,10 @@
               </div>
             </div>
           </div>
-          <div class="day cloudy">
+          <div class="day">
+            <div class="weather-bg">
+                <img  class="m-auto" src="./assets/img/{{(weather && weather.weather[4].hourly[4].weatherCode )}}.jpg">
+            </div>
             <div class="forecast-container">
               <p class="p-2">Thứ 7</p>
                 <img src="./assets/img/{{(weather && weather.weather[4].hourly[4].weatherCode )}}.png" class="d-block m-auto big-icon py-3">
@@ -217,7 +235,10 @@
               </div>
             </div>
           </div>
-          <div class="day rainny">
+          <div class="day">
+            <div class="weather-bg">
+                <img  class="m-auto" src="./assets/img/{{(weather && weather.weather[5].hourly[4].weatherCode )}}.jpg">
+            </div>
             <div class="forecast-container">
               <p class="p-2">Chủ nhật</p>
                 <img src="./assets/img/{{(weather && weather.weather[5].hourly[4].weatherCode )}}.png" class="d-block m-auto big-icon py-3">
@@ -238,7 +259,7 @@
                 </div>
                 <div class="col-4 divider-right">
                   <p class="m-0">Gió</p>
-                  <img src="./assets/img/wind.png" class="d-block small-icon">
+                  <img src="./assets/img/wind.png" class="d-block big-icon">
                   <p class="m-0">{{(weather && weather.weather[5].hourly[4].windspeedKmph ) || '--'}} (km/h)</p>
                 </div>
                 <div class="col-4">
@@ -249,7 +270,10 @@
               </div>
             </div>
           </div>
-          <div class="day rainny">
+          <div class="day">
+            <div class="weather-bg">
+                <img  class="m-auto" src="./assets/img/{{(weather && weather.weather[6].hourly[4].weatherCode )}}.jpg">
+            </div>
             <div class="forecast-container">
               <p class="p-2">Thứ 2</p>
                 <img src="./assets/img/{{(weather && weather.weather[6].hourly[4].weatherCode )}}.png" class="d-block m-auto big-icon py-3">
