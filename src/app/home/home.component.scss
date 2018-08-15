@@ -5,12 +5,16 @@
   position: relative;
   color: #fff;
   border-radius: 5px;
+  overflow: hidden;
   span{
     position: relative;
     &:after{
       position: absolute;
 
     }
+  }
+  .weather-bg{
+    border-radius: 5px!important
   }
 }
 
