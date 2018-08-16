@@ -4,6 +4,7 @@ import { RootService } from "../root.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
 import { fakeNews } from "../data/fake-news";
+import * as moment from "moment";
 
 @Component({
   selector: "app-home",
@@ -16,13 +17,16 @@ export class HomeComponent implements OnInit {
 
   handleSubmitInput(event) {
     console.log(event);
-    event = event.replace(' ', '')
+    event = event.replace(" ", "");
     $.get(
       `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7528520a53864c53a34165313180308&q=${event}&format=json&lang=vi`,
       res => {
         console.log(res.data);
         const result = {
           ...res.data,
+          date: moment()
+            .locale("vi")
+            .format("dddd"),
           city: res.data.request[0].query,
           title: res.data.current_condition[0].lang_vi[0].value,
           temp_C: res.data.current_condition[0].temp_C,
@@ -32,32 +36,39 @@ export class HomeComponent implements OnInit {
           uvIndex: res.data.weather[0].uvIndex,
           days: [
             {
-              mintempC: res.data.weather[0].mintempC,
-              maxtempC: res.data.weather[0].maxtempC
+              date: moment(res.data.weather[1].date, "YYYY-MM-DD")
+                .locale("vi")
+                .format("dddd")
             },
             {
-              mintempC: res.data.weather[1].mintempC,
-              maxtempC: res.data.weather[1].maxtempC
+              date: moment(res.data.weather[2].date, "YYYY-MM-DD")
+                .locale("vi")
+                .format("dddd")
             },
             {
-              mintempC: res.data.weather[2].mintempC,
-              maxtempC: res.data.weather[2].maxtempC
+              date: moment(res.data.weather[3].date, "YYYY-MM-DD")
+                .locale("vi")
+                .format("dddd")
             },
             {
-              mintempC: res.data.weather[3].mintempC,
-              maxtempC: res.data.weather[3].maxtempC
+              date: moment(res.data.weather[4].date, "YYYY-MM-DD")
+                .locale("vi")
+                .format("dddd")
             },
             {
-              mintempC: res.data.weather[4].mintempC,
-              maxtempC: res.data.weather[4].maxtempC
+              date: moment(res.data.weather[5].date, "YYYY-MM-DD")
+                .locale("vi")
+                .format("dddd")
             },
             {
-              mintempC: res.data.weather[5].mintempC,
-              maxtempC: res.data.weather[5].maxtempC
+              date: moment(res.data.weather[6].date, "YYYY-MM-DD")
+                .locale("vi")
+                .format("dddd")
             },
             {
-              mintempC: res.data.weather[6].mintempC,
-              maxtempC: res.data.weather[6].maxtempC
+              date: moment(res.data.weather[7].date, "YYYY-MM-DD")
+                .locale("vi")
+                .format("dddd")
             }
           ]
         };
@@ -194,16 +205,17 @@ export class HomeComponent implements OnInit {
       });
 
       $(window).scroll(function() {
-        if ($(window).scrollTop() > window.innerHeight - $(".city-forecast").offset().top + 300) {
+        if (
+          $(window).scrollTop() >
+          window.innerHeight - $(".city-forecast").offset().top + 300
+        ) {
           $(".city-forecast").addClass("active");
         }
       });
 
-      $("img").on('error',function(){
-        $(this).attr('src','./assets/img/error.png')
-
-      })
-
+      $("img").on("error", function() {
+        $(this).attr("src", "./assets/img/error.png");
+      });
     });
 
     if (navigator.geolocation) {
@@ -222,7 +234,5 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  ngAfterViewInit() {
-
-  }
+  ngAfterViewInit() {}
 }
