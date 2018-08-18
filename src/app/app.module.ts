@@ -8,6 +8,7 @@ import { HomeComponent } from "./home/home.component";
 import { NewComponent } from "./new/new.component";
 import { TeamComponent } from "./team/team.component";
 import { HttpClientModule } from "@angular/common/http";
+import { HourlyComponent } from './hourly/hourly.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HttpClientModule } from "@angular/common/http";
     NavComponent,
     HomeComponent,
     NewComponent,
-    TeamComponent
+    TeamComponent,
+    HourlyComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
