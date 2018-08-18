@@ -19,7 +19,7 @@ const routes: Routes = [
     component: TeamComponent
   },
   {
-    path: 'hourly',
+    path: 'hourly/:city/:date',
     component: HourlyComponent
   }
 ];

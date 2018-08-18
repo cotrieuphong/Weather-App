@@ -92,7 +92,7 @@
                                     <p class="m-0">{{(weather && weather.weather[0].uvIndex ) || '--'}}</p>
                                 </div>
                                 <div class="col-12">
-                                    <a routerLink="">Chi tiết</a>
+                                    <a routerLink="hourly/{{ (weather && weather.city_name) }}/{{(weather && weather.days[0].fulldate ) || '--'}}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                                     <p class="m-0">{{(weather && weather.weather[1].uvIndex ) || '--'}}</p>
                                 </div>
                                 <div class="col-12">
-                                    <a routerLink="">Chi tiết</a>
+                                    <a routerLink="hourly/{{ (weather && weather.city_name) }}/{{(weather && weather.days[1].fulldate ) || '--'}}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -168,7 +168,7 @@
                                     <p class="m-0">{{(weather && weather.weather[2].uvIndex ) || '--'}}</p>
                                 </div>
                                 <div class="col-12">
-                                    <a routerLink="">Chi tiết</a>
+                                    <a routerLink="hourly/{{ (weather && weather.city_name) }}/{{(weather && weather.days[2].fulldate ) || '--'}}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -206,7 +206,7 @@
                                     <p class="m-0">{{(weather && weather.weather[3].uvIndex ) || '--'}}</p>
                                 </div>
                                 <div class="col-12">
-                                    <a routerLink="">Chi tiết</a>
+                                    <a routerLink="hourly/{{ (weather && weather.city_name) }}/{{(weather && weather.days[3].fulldate ) || '--'}}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                                     <p class="m-0">{{(weather && weather.weather[4].uvIndex ) || '--'}}</p>
                                 </div>
                                 <div class="col-12">
-                                    <a routerLink="">Chi tiết</a>
+                                    <a routerLink="hourly/{{ (weather && weather.city_name) }}/{{(weather && weather.days[4].fulldate ) || '--'}}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -282,7 +282,7 @@
                                     <p class="m-0">{{(weather && weather.weather[5].uvIndex ) || '--'}}</p>
                                 </div>
                                 <div class="col-12">
-                                    <a routerLink="">Chi tiết</a>
+                                    <a routerLink="hourly/{{ (weather && weather.city_name) }}/{{(weather && weather.days[5].fulldate ) || '--'}}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
@@ -320,7 +320,7 @@
                                     <p class="m-0">{{(weather && weather.weather[6].uvIndex ) || '--'}}</p>
                                 </div>
                                 <div class="col-12">
-                                    <a routerLink="">Chi tiết</a>
+                                    <a routerLink="hourly/{{ (weather && weather.city_name) }}/{{(weather && weather.days[6].fulldate ) || '--'}}">Chi tiết</a>
                                 </div>
                             </div>
                         </div>
