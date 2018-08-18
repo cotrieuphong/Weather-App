@@ -1,0 +1,213 @@
+.location {
+    /* background: url(/assets/img/cloudy.jpg) center no-repeat;
+  background-size: cover; */
+    height: 500px;
+    position: relative;
+    color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    span {
+        position: relative;
+        &:after {
+            position: absolute;
+        }
+    }
+    .weather-bg {
+        border-radius: 5px!important
+    }
+}
+
+.title {
+    color: #fff;
+}
+
+.location-info {
+    width: 100%;
+    height: 100%;
+    background: rgba(#000, .4);
+    border-radius: 5px;
+    h1 {
+        span {
+            position: relative;
+            &:after {
+                position: absolute;
+                display: block;
+                content: '';
+                top: 0;
+                left: -10px;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                border: 3px solid #fff;
+            }
+        }
+    }
+    p {
+        span {
+            position: relative;
+            &:after {
+                position: absolute;
+                display: block;
+                content: '';
+                top: 0;
+                left: -5px;
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                border: 1px solid #fff;
+            }
+        }
+    }
+}
+
+.img {
+    height: 80px;
+    img {
+        height: 80px;
+        margin: auto;
+    }
+}
+
+.weather-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        margin: 0!important;
+    }
+}
+
+.small-icon {
+    height: 22px!important;
+    margin: 10px auto;
+}
+
+.big-icon {
+    height: 130px!important;
+    margin: 10px auto;
+}
+
+.divider-right {
+    position: relative;
+    &:after {
+        position: absolute;
+        display: block;
+        content: '';
+        width: 1px;
+        height: 80%;
+        right: 0px;
+        top: 10%;
+        background: rgba(#000, .5);
+    }
+}
+
+.stats {
+    background: #fff;
+    color: #000;
+    position: absolute;
+    width: calc(100% - 20px);
+    height: auto;
+    bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 .5rem 1rem rgba(#000, .3);
+    left: 10px;
+    transition: all .3s linear;
+}
+
+.hourly-forecast{
+  width: 100%;
+  height: 500px;
+  background: url(/assets/img/sunny.jpg) center no-repeat;
+  background-size: cover;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff;
+}
+
+.hourly{
+  width: 100%;
+  height: 500px;
+  background: rgba(#000, .5);
+  color: #fff;
+  thead{
+    text-align: center;
+
+    tr{
+      th{
+        span {
+            position: relative;
+            &:after {
+                position: absolute;
+                display: block;
+                content: '';
+                top: 0;
+                left: -4px;
+                width: 4px;
+                height: 4px;
+                border-radius: 50%;
+                border: 1px solid #fff;
+            }
+        }
+        &:first-child{
+          width: 5%;
+        }
+        &:nth-child(2){
+          width: 45%;
+        }
+        &:nth-child(3){
+          width: 15%;
+        }
+        &:nth-child(4){
+          width: 15%;
+        }
+        &:nth-child(5){
+          width: 15%;
+        }
+        &:nth-child(6){
+          width: 5%;
+        }
+      }
+    }
+  }
+  tbody{
+    text-align: center;
+    tr{
+      td{
+        vertical-align: middle;
+        &:first-child{
+          width: 5%;
+        }
+        &:nth-child(2){
+          width: 45%;
+          text-align: left;
+        }
+        &:nth-child(3){
+          width: 15%;
+        }
+        &:nth-child(4){
+          width: 15%;
+        }
+        &:nth-child(5){
+          width: 15%;
+        }
+        &:nth-child(6){
+          width: 5%;
+          img{
+            width: 30px;
+          }
+        }
+      }
+      &:nth-child(odd){
+      }
+    }
+  }
+}
+.p-2 {
+    text-transform: capitalize
+}

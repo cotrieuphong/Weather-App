@@ -1,0 +1,81 @@
+<div class="row no-gutters">
+
+    <div class="col-12 m-auto px-5 pt-5 pb-0" *ngIf="weather != undefined">
+        <div class="row no-gutters">
+            <div class="col-12 p-2 py-3">
+                <h1 class="title">
+                    Thời tiết {{(weather && weather.date ) || 'Hôm nay'}} ngày 
+                    {{(weather && weather.day )}}
+                </h1>
+            </div>
+
+            <div class="col-3 p-2">
+                <div class="shadow location">
+                    <div class="weather-bg">
+                        <img class="m-auto" src="./assets/img/{{(weather && weather.current_condition[0].weatherCode )}}.jpg">
+                    </div>
+                    <div class="location-info text-center">
+                        <p class="mb-0 p-2">{{(weather && weather.date ) || 'Hôm nay'}}</p>
+                        <h3 class="py-3 m-0">{{(weather && weather.city ) || '--'}}</h3>
+                        <p class="mb-0">{{(weather && weather.title ) || '--'}}</p>
+                        <div class="d-block img my-2">
+                            <img class="m-auto" src="./assets/img/{{(weather && weather.current_condition[0].weatherCode )}}.png">
+                        </div>
+                        <h1>
+                            Cao nhất: {{(weather && weather.maxtempC ) || '--'}}
+                            <span>C</span>
+                        </h1>
+                        <p class="py-1">Thấp nhất: {{(weather && weather.FeelsLikeC ) || '--'}}
+                            <span>C</span>
+                        </p>
+                        <div class="row no-gutters shadow stats py-2">
+                            <div class="col-4 divider-right">
+                                <p class="m-0">Độ ẩm</p>
+                                <img src="./assets/img/humidity.png" class="d-block small-icon">
+                                <p class="m-0">{{(weather && weather.humidity ) || '--'}}</p>
+                            </div>
+                            <div class="col-4 divider-right">
+                                <p class="m-0">Gió</p>
+                                <img src="./assets/img/wind.png" class="d-block small-icon">
+                                <p class="m-0">{{(weather && weather.windspeedKmph ) || '--'}} (km/h)</p>
+                            </div>
+                            <div class="col-4">
+                                <p class="m-0">Tia UV</p>
+                                <img src="./assets/img/UV.png" class="d-block small-icon">
+                                <p class="m-0">{{(weather && weather.uvIndex ) || '--'}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9 p-2">
+                <div class="hourly-forecast">
+                    <table class="table table-bordered table-hovered hourly">
+                        <thead>
+                            <tr>
+                                <th>Giờ</th>
+                                <th>Dự đoán</th>
+                                <th>Nhiệt độ( <span>C</span> )</th>
+                                <th>Cảm giác thật( <span>C</span> )</th>
+                                <th>Tốc độ gió(km/h)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let detail of hourly">
+                                <td>{{ getHour(detail.time) }}</td>
+                                <td>{{ ( detail && detail.lang_vi[0].value) }}</td>
+                                <td>{{ ( detail && detail.tempC) }}</td>
+                                <td>{{ ( detail && detail.FeelsLikeC) }}</td>
+                                <td>{{ ( detail && detail.windspeedKmph) }}</td>
+                                <td>
+                                    <img src="./assets/img/{{(detail && detail.weatherCode )}}.png" alt="">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+</div>
+</div>
+</div>
+</div>
