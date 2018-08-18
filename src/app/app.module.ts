@@ -9,6 +9,7 @@ import { NewComponent } from "./new/new.component";
 import { TeamComponent } from "./team/team.component";
 import { HttpClientModule } from "@angular/common/http";
 import { HourlyComponent } from './hourly/hourly.component';
+import { NewsDataComponent } from './news-data/news-data.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { HourlyComponent } from './hourly/hourly.component';
     HomeComponent,
     NewComponent,
     TeamComponent,
-    HourlyComponent
+    HourlyComponent,
+    NewsDataComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

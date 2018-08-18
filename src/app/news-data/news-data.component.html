@@ -1,0 +1,7 @@
+<div class="news-data-app" *ngIf="newsData">
+  <div class="news-data-wrapper">
+    <h4 class="pb-5">{{newsData.title}}</h4>
+    <span>{{newsData.date}}</span>
+    <div class="content-box" [innerHTML]=newsData.content></div>
+  </div>
+</div>

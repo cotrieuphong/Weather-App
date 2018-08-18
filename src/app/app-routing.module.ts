@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { NewComponent } from './new/new.component';
 import { TeamComponent } from './team/team.component';
 import { HourlyComponent } from './hourly/hourly.component';
+import { NewsDataComponent } from './news-data/news-data.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'new',
     component: NewComponent
+  },
+  {
+    path: 'new/:id',
+    component: NewsDataComponent
   },
   {
     path: 'team',

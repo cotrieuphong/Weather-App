@@ -1,0 +1,15 @@
+.news-data-app {
+  padding: 75px;
+  .news-data-wrapper {
+    padding: 30px;
+    span {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .content-box {
+      a {
+        color: white;
+      }
+    }
+  }
+}
