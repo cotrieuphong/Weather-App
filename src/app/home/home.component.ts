@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
             .locale("vi")
             .format("dddd"),
           city: res.data.request[0].query,
+          city_name: event,
           title: res.data.current_condition[0].lang_vi[0].value,
           temp_C: res.data.current_condition[0].temp_C,
           FeelsLikeC: res.data.current_condition[0].FeelsLikeC,
@@ -38,37 +39,44 @@ export class HomeComponent implements OnInit {
             {
               date: moment(res.data.weather[1].date, "YYYY-MM-DD")
                 .locale("vi")
-                .format("dddd")
+                .format("dddd"),
+              fulldate: res.data.weather[1].date
             },
             {
               date: moment(res.data.weather[2].date, "YYYY-MM-DD")
                 .locale("vi")
-                .format("dddd")
+                .format("dddd"),
+                fulldate: res.data.weather[2].date
             },
             {
               date: moment(res.data.weather[3].date, "YYYY-MM-DD")
                 .locale("vi")
-                .format("dddd")
+                .format("dddd"),
+                fulldate: res.data.weather[3].date
             },
             {
               date: moment(res.data.weather[4].date, "YYYY-MM-DD")
                 .locale("vi")
-                .format("dddd")
+                .format("dddd"),
+                fulldate: res.data.weather[4].date
             },
             {
               date: moment(res.data.weather[5].date, "YYYY-MM-DD")
                 .locale("vi")
-                .format("dddd")
+                .format("dddd"),
+                fulldate: res.data.weather[5].date
             },
             {
               date: moment(res.data.weather[6].date, "YYYY-MM-DD")
                 .locale("vi")
-                .format("dddd")
+                .format("dddd"),
+                fulldate: res.data.weather[6].date
             },
             {
               date: moment(res.data.weather[7].date, "YYYY-MM-DD")
                 .locale("vi")
-                .format("dddd")
+                .format("dddd"),
+                fulldate: res.data.weather[7].date
             }
           ]
         };
