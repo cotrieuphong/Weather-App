@@ -123,11 +123,10 @@
 .hourly-forecast{
   width: 100%;
   height: 500px;
-  background: url(/assets/img/sunny.jpg) center no-repeat;
-  background-size: cover;
+  position: relative;
   border-radius: 5px;
   overflow: hidden;
-  box-shadow: inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff;
+  /* box-shadow: inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff, inset 0 0 1px #fff; */
 }
 
 .hourly{
@@ -137,9 +136,10 @@
   color: #fff;
   thead{
     text-align: center;
-
     tr{
+      background: rgba(#000, .4);
       th{
+        border-top: none;
         span {
             position: relative;
             &:after {
@@ -155,16 +155,16 @@
             }
         }
         &:first-child{
-          width: 5%;
+          width: 10%;
         }
         &:nth-child(2){
-          width: 45%;
+          width: 39%;
         }
         &:nth-child(3){
           width: 15%;
         }
         &:nth-child(4){
-          width: 15%;
+          width: 16%;
         }
         &:nth-child(5){
           width: 15%;
@@ -178,20 +178,23 @@
   tbody{
     text-align: center;
     tr{
+      &:hover{
+        background: rgba(#fff, .4);
+      }
       td{
         vertical-align: middle;
         &:first-child{
-          width: 5%;
+          width: 10%;
         }
         &:nth-child(2){
-          width: 45%;
-          text-align: left;
+          width: 39%;
+          /* text-align: left; */
         }
         &:nth-child(3){
           width: 15%;
         }
         &:nth-child(4){
-          width: 15%;
+          width: 16%;
         }
         &:nth-child(5){
           width: 15%;
@@ -203,7 +206,8 @@
           }
         }
       }
-      &:nth-child(odd){
+      &:nth-child(even){
+        background: rgba(#000, .4);
       }
     }
   }

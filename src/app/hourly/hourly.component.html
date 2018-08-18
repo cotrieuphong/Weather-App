@@ -4,7 +4,7 @@
         <div class="row no-gutters">
             <div class="col-12 p-2 py-3">
                 <h1 class="title">
-                    Thời tiết {{(weather && weather.date ) || 'Hôm nay'}} ngày 
+                    Thời tiết {{(weather && weather.date ) || 'Hôm nay'}} ngày
                     {{(weather && weather.day )}}
                 </h1>
             </div>
@@ -50,7 +50,10 @@
             </div>
             <div class="col-9 p-2">
                 <div class="hourly-forecast">
-                    <table class="table table-bordered table-hovered hourly">
+                  <div class="weather-bg">
+                      <img class="m-auto" src="./assets/img/{{(weather && weather.current_condition[0].weatherCode )}}.jpg">
+                  </div>
+                    <table class="table hourly">
                         <thead>
                             <tr>
                                 <th>Giờ</th>
