@@ -1,15 +1,38 @@
 .news-data-app {
-  padding: 75px;
+  border-radius: 10px;
+  background: #fff;
   .news-data-wrapper {
-    padding: 30px;
+    h4{
+      font-size: 40px;
+    }
     span {
       display: inline-block;
       margin-bottom: 20px;
     }
     .content-box {
+      img{
+        margin: auto;
+      }
       a {
         color: white;
       }
     }
   }
+}
+
+.image{
+  margin: auto;
+}
+
+.related {
+    background: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    h1 {
+        border-bottom: 1px solid rgba(#000, .5);
+    }
+    ul li:hover {
+        cursor: pointer;
+        background: #ddd;
+    }
 }
