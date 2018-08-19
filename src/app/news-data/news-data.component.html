@@ -1,7 +1,17 @@
-<div class="news-data-app" *ngIf="newsData">
-  <div class="news-data-wrapper">
-    <h4 class="pb-5">{{newsData.title}}</h4>
-    <span>{{newsData.date}}</span>
-    <div class="content-box" [innerHTML]=newsData.content></div>
+<div class="row no-gutters px-5 pt-5 pb-0">
+  <div class="col-9 news-data-app" *ngIf="newsData">
+    <div class="news-data-wrapper p-3">
+      <h4 class="py-3">{{newsData.title}}</h4>
+      <span>{{newsData.date}}</span>
+      <div class="content-box" [innerHTML]=newsData.content></div>
+    </div>
+  </div>
+  <div class="col-3 pl-3">
+    <div class="related">
+        <h1 class="p-1">Tin liên quan</h1>
+        <ul class="list-group">
+            <li class="list-group-item" *ngFor="let new of news" routerLink="/new/{{new.id}}">{{new.title}}</li>
+        </ul>
+    </div>
   </div>
 </div>
