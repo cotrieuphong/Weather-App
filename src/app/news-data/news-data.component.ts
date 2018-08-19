@@ -12,9 +12,9 @@ export class NewsDataComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   newsData: any;
-  news: [];
+  // news: [];
   ngOnInit() {
-    this.news = fakeNews;
+    // this.news = fakeNews;
     let id = this.route.snapshot.params.id;
     this.newsData = fakeNews[id - 1]
   }
