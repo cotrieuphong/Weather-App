@@ -16,14 +16,56 @@ export class HomeComponent implements OnInit {
   gotInfo: boolean;
 
   handleSubmitInput(event) {
+    if (event == 'dak lak') {
+      event = 'dac lac'
+    }
     $.get(
       `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7528520a53864c53a34165313180308&q=${event}&format=json&lang=vi`,
       res => {
+        let cityName = []
         let value = res.data.request[0].query.split(',')[0];
-        let provinceRegex = new RegExp("\\b^" + value, "gi");
-        let cityName = this.province.filter(provinceName =>
-        this.change_alias(provinceName).match(provinceRegex)
-        );
+        if (res.data.request[0].query.split(',')[0] == 'Vung Tau') {
+          cityName[0] = "Bà Rịa - Vũng Tàu"
+        }
+        else if (res.data.request[0].query.split(',')[0] ==  'Ap Binh Thuan') {
+          cityName[0] = "Bình Thuận"
+        }
+        else if (res.data.request[0].query.split(',')[0] ==  'Buon Bubo Dak Nong') {
+          cityName[0] = "Đắk Nông"
+        }
+        else if (res.data.request[0].query.split(',')[0] ==  'Dac Lac') {
+          cityName[0] = "Đắk Lắk"
+        }
+        else if (res.data.request[0].query.split(',')[0] ==  'Bi Giang') {
+          cityName[0] = "Hậu Giang"
+        }
+        else if (res.data.request[0].query.split(',')[0] == 'Yen Hung') {
+          cityName[0] = "Hưng Yên"
+        }
+        else if (res.data.request[0].query.split(',')[0] == 'Dong Lam') {
+          cityName[0] = "Lâm Đồng"
+        }
+        else if (res.data.request[0].query.split(',')[0] == 'An Long') {
+          cityName[0] = "Long An"
+        }
+        else if (res.data.request[0].query.split(',')[0] == 'Ban Nghe') {
+          cityName[0] = "Nghệ An"
+        }
+        else if (res.data.request[0].query.split(',')[0] == 'Ap Quang Binh') {
+          cityName[0] = "Quảng Bình"
+        }
+        else if (res.data.request[0].query.split(',')[0] == 'Hue') {
+          cityName[0] = "Thừa Thiên - Huế"
+        }
+        else if (res.data.request[0].query.split(',')[0] == 'Tien Tien') {
+          cityName[0] = "Tiền Giang"
+        }
+        else {
+          let provinceRegex = new RegExp("\\b^" + value, "gi");
+          cityName = this.province.filter(provinceName =>
+            this.change_alias(provinceName).match(provinceRegex)
+          );
+        }
         const result = {
           ...res.data,
           date: moment()
@@ -228,8 +270,10 @@ export class HomeComponent implements OnInit {
       });
     });
 
+
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(position => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log(position)
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
 

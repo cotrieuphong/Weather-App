@@ -107,6 +107,10 @@ export class HourlyComponent implements OnInit {
 	ngOnInit() {
 		this.route.params.subscribe(params => {
 			var city = this.route.snapshot.paramMap.get('city');
+      city = city.replace("-", " ")
+      if (city == 'dak lak') {
+        city = 'dac lac'
+      }
 			var date = this.route.snapshot.paramMap.get('date');
 			$.get(
 				`http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7528520a53864c53a34165313180308&q=${city}&format=json&lang=vi&date=${date}`,
@@ -116,6 +120,42 @@ export class HourlyComponent implements OnInit {
           let cityName = this.province.filter(provinceName =>
             this.change_alias(provinceName).match(provinceRegex)
           );
+          if (res.data.request[0].query.split(',')[0] == 'Vung Tau') {
+            cityName[0] = "Bà Rịa - Vũng Tàu"
+          }
+          else if (res.data.request[0].query.split(',')[0] ==  'Ap Binh Thuan') {
+            cityName[0] = "Bình Thuận"
+          }
+          else if (res.data.request[0].query.split(',')[0] ==  'Buon Bubo Dak Nong') {
+            cityName[0] = "Đắk Nông"
+          }
+          else if (res.data.request[0].query.split(',')[0] ==  'Dac Lac') {
+            cityName[0] = "Đắk Lắk"
+          }
+          else if (res.data.request[0].query.split(',')[0] ==  'Bi Giang') {
+            cityName[0] = "Hậu Giang"
+          }
+          else if (res.data.request[0].query.split(',')[0] == 'Yen Hung') {
+            cityName[0] = "Hưng Yên"
+          }
+          else if (res.data.request[0].query.split(',')[0] == 'Dong Lam') {
+            cityName[0] = "Lâm Đồng"
+          }
+          else if (res.data.request[0].query.split(',')[0] == 'An Long') {
+            cityName[0] = "Long An"
+          }
+          else if (res.data.request[0].query.split(',')[0] == 'Ban Nghe') {
+            cityName[0] = "Nghệ An"
+          }
+          else if (res.data.request[0].query.split(',')[0] == 'Ap Quang Binh') {
+            cityName[0] = "Quảng Bình"
+          }
+          else if (res.data.request[0].query.split(',')[0] == 'Hue') {
+            cityName[0] = "Thừa Thiên - Huế"
+          }
+          else if (res.data.request[0].query.split(',')[0] == 'Tien Tien') {
+            cityName[0] = "Tiền Giang"
+          }
 					const result = {
 						...res.data,
 						date: moment(res.data.weather[0].date, "YYYY-MM-DD")
