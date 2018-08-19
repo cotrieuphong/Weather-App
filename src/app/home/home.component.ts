@@ -16,51 +16,41 @@ export class HomeComponent implements OnInit {
   gotInfo: boolean;
 
   handleSubmitInput(event) {
-    if (event == 'dak lak') {
-      event = 'dac lac'
+    if (event == "dak lak") {
+      event = "dac lac";
     }
     $.get(
       `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7528520a53864c53a34165313180308&q=${event}&format=json&lang=vi`,
       res => {
-        let cityName = []
-        let value = res.data.request[0].query.split(',')[0];
-        if (res.data.request[0].query.split(',')[0] == 'Vung Tau') {
-          cityName[0] = "Bà Rịa - Vũng Tàu"
-        }
-        else if (res.data.request[0].query.split(',')[0] ==  'Ap Binh Thuan') {
-          cityName[0] = "Bình Thuận"
-        }
-        else if (res.data.request[0].query.split(',')[0] ==  'Buon Bubo Dak Nong') {
-          cityName[0] = "Đắk Nông"
-        }
-        else if (res.data.request[0].query.split(',')[0] ==  'Dac Lac') {
-          cityName[0] = "Đắk Lắk"
-        }
-        else if (res.data.request[0].query.split(',')[0] ==  'Bi Giang') {
-          cityName[0] = "Hậu Giang"
-        }
-        else if (res.data.request[0].query.split(',')[0] == 'Yen Hung') {
-          cityName[0] = "Hưng Yên"
-        }
-        else if (res.data.request[0].query.split(',')[0] == 'Dong Lam') {
-          cityName[0] = "Lâm Đồng"
-        }
-        else if (res.data.request[0].query.split(',')[0] == 'An Long') {
-          cityName[0] = "Long An"
-        }
-        else if (res.data.request[0].query.split(',')[0] == 'Ban Nghe') {
-          cityName[0] = "Nghệ An"
-        }
-        else if (res.data.request[0].query.split(',')[0] == 'Ap Quang Binh') {
-          cityName[0] = "Quảng Bình"
-        }
-        else if (res.data.request[0].query.split(',')[0] == 'Hue') {
-          cityName[0] = "Thừa Thiên - Huế"
-        }
-        else if (res.data.request[0].query.split(',')[0] == 'Tien Tien') {
-          cityName[0] = "Tiền Giang"
-        }
-        else {
+        let cityName = [];
+        let value = res.data.request[0].query.split(",")[0];
+        if (res.data.request[0].query.split(",")[0] == "Vung Tau") {
+          cityName[0] = "Bà Rịa - Vũng Tàu";
+        } else if (res.data.request[0].query.split(",")[0] == "Ap Binh Thuan") {
+          cityName[0] = "Bình Thuận";
+        } else if (
+          res.data.request[0].query.split(",")[0] == "Buon Bubo Dak Nong"
+        ) {
+          cityName[0] = "Đắk Nông";
+        } else if (res.data.request[0].query.split(",")[0] == "Dac Lac") {
+          cityName[0] = "Đắk Lắk";
+        } else if (res.data.request[0].query.split(",")[0] == "Bi Giang") {
+          cityName[0] = "Hậu Giang";
+        } else if (res.data.request[0].query.split(",")[0] == "Yen Hung") {
+          cityName[0] = "Hưng Yên";
+        } else if (res.data.request[0].query.split(",")[0] == "Dong Lam") {
+          cityName[0] = "Lâm Đồng";
+        } else if (res.data.request[0].query.split(",")[0] == "An Long") {
+          cityName[0] = "Long An";
+        } else if (res.data.request[0].query.split(",")[0] == "Ban Nghe") {
+          cityName[0] = "Nghệ An";
+        } else if (res.data.request[0].query.split(",")[0] == "Ap Quang Binh") {
+          cityName[0] = "Quảng Bình";
+        } else if (res.data.request[0].query.split(",")[0] == "Hue") {
+          cityName[0] = "Thừa Thiên - Huế";
+        } else if (res.data.request[0].query.split(",")[0] == "Tien Tien") {
+          cityName[0] = "Tiền Giang";
+        } else {
           let provinceRegex = new RegExp("\\b^" + value, "gi");
           cityName = this.province.filter(provinceName =>
             this.change_alias(provinceName).match(provinceRegex)
@@ -71,8 +61,8 @@ export class HomeComponent implements OnInit {
           date: moment()
             .locale("vi")
             .format("dddd"),
-          city: cityName[0] + ', Việt Nam',
-          city_name: this.change_alias(cityName[0]).replace(" ", "-"),
+          city: cityName[0] || value + ", Việt Nam",
+          city_name: this.change_alias(cityName[0] || value).replace(" ", "-"),
           title: res.data.current_condition[0].lang_vi[0].value,
           temp_C: res.data.current_condition[0].temp_C,
           FeelsLikeC: res.data.current_condition[0].FeelsLikeC,
@@ -90,37 +80,37 @@ export class HomeComponent implements OnInit {
               date: moment(res.data.weather[2].date, "YYYY-MM-DD")
                 .locale("vi")
                 .format("dddd"),
-                fulldate: res.data.weather[2].date
+              fulldate: res.data.weather[2].date
             },
             {
               date: moment(res.data.weather[3].date, "YYYY-MM-DD")
                 .locale("vi")
                 .format("dddd"),
-                fulldate: res.data.weather[3].date
+              fulldate: res.data.weather[3].date
             },
             {
               date: moment(res.data.weather[4].date, "YYYY-MM-DD")
                 .locale("vi")
                 .format("dddd"),
-                fulldate: res.data.weather[4].date
+              fulldate: res.data.weather[4].date
             },
             {
               date: moment(res.data.weather[5].date, "YYYY-MM-DD")
                 .locale("vi")
                 .format("dddd"),
-                fulldate: res.data.weather[5].date
+              fulldate: res.data.weather[5].date
             },
             {
               date: moment(res.data.weather[6].date, "YYYY-MM-DD")
                 .locale("vi")
                 .format("dddd"),
-                fulldate: res.data.weather[6].date
+              fulldate: res.data.weather[6].date
             },
             {
               date: moment(res.data.weather[7].date, "YYYY-MM-DD")
                 .locale("vi")
                 .format("dddd"),
-                fulldate: res.data.weather[7].date
+              fulldate: res.data.weather[7].date
             }
           ]
         };
@@ -270,17 +260,14 @@ export class HomeComponent implements OnInit {
       });
     });
 
-
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position)
+      navigator.geolocation.getCurrentPosition(position => {
         const lat = position.coords.latitude;
         const lon = position.coords.longitude;
 
         const googleApiCall = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lon}`;
 
         $.get(googleApiCall, res => {
-          console.log(res.results);
           const city = res.results[2].address_components[1].short_name;
           this.handleSubmitInput(this.change_alias(city));
         });
