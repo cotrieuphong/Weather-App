@@ -457,7 +457,7 @@
 
                 <div class="row no-gutters">
                     <div class="col-8 py-2 pr-2">
-                        <div class="new shadow" *ngFor="let news of newsData">
+                        <div class="new shadow" *ngFor="let news of newsData" routerLink="/new/{{news.id}}">
                             <img src="{{news.thumb}}" alt="">
                             <div class="information">
                                 <h2>{{news.title}}</h2>
@@ -469,7 +469,7 @@
                         <div class="related">
                             <h1 class="p-1">Tin liên quan</h1>
                             <ul class="list-group">
-                                <li class="list-group-item" *ngFor="let news of newsData">{{news.title}}</li>
+                                <li class="list-group-item" *ngFor="let news of newsData" routerLink="/new/{{news.id}}">{{news.title}}</li>
                             </ul>
                         </div>
                     </div>
