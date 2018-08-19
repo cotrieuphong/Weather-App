@@ -16,19 +16,21 @@ export class HomeComponent implements OnInit {
   gotInfo: boolean;
 
   handleSubmitInput(event) {
-    console.log(event);
-    event = event.replace(" ", "%20");
     $.get(
       `http://api.worldweatheronline.com/premium/v1/weather.ashx?key=7528520a53864c53a34165313180308&q=${event}&format=json&lang=vi`,
       res => {
-        console.log(res.data);
+        let value = res.data.request[0].query.split(',')[0];
+        let provinceRegex = new RegExp("\\b^" + value, "gi");
+        let cityName = this.province.filter(provinceName =>
+        this.change_alias(provinceName).match(provinceRegex)
+        );
         const result = {
           ...res.data,
           date: moment()
             .locale("vi")
             .format("dddd"),
-          city: res.data.request[0].query,
-          city_name: event,
+          city: cityName[0] + ', Việt Nam',
+          city_name: this.change_alias(cityName[0]).replace(" ", "-"),
           title: res.data.current_condition[0].lang_vi[0].value,
           temp_C: res.data.current_condition[0].temp_C,
           FeelsLikeC: res.data.current_condition[0].FeelsLikeC,
