@@ -1,0 +1,18 @@
+<div class="news-app">
+    <h1 class="pb-5">Tin tức trong ngày</h1>
+    <div class="news-wrapper">
+        <div class="news-box" *ngFor="let news of newsData" routerLink="/new/{{news.id}}">
+            <div class="news-image">
+                <img src={{news.thumb}} alt="">
+            </div>
+            <div class="news-content">
+                <h5>{{news.title}}</h5>
+                <span>{{news.date}}</span>
+                <p>{{news.short}}</p>
+                <div class="read-more">
+                    <p>Read More</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
